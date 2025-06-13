@@ -1,4 +1,4 @@
-# Currency-converter-exchange_rates = {
+exchange_rates = {
     'USD': {'INR': 83.10, 'EUR': 0.92, 'GBP': 0.78},
     'INR': {'USD': 0.012, 'EUR': 0.011, 'GBP': 0.0094},
     'EUR': {'USD': 1.09, 'INR': 90.50, 'GBP': 0.85},
