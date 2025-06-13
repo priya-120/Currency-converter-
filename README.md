@@ -1,1 +1,28 @@
-# Currency-converter-
+# Currency-converter-exchange_rates = {
+    'USD': {'INR': 83.10, 'EUR': 0.92, 'GBP': 0.78},
+    'INR': {'USD': 0.012, 'EUR': 0.011, 'GBP': 0.0094},
+    'EUR': {'USD': 1.09, 'INR': 90.50, 'GBP': 0.85},
+    'GBP': {'USD': 1.28, 'INR': 106.45, 'EUR': 1.17}
+}
+
+def currency_converter(amount, from_currency, to_currency):
+    if from_currency == to_currency:
+        return amount  # No conversion needed
+    try:
+        rate = exchange_rates[from_currency][to_currency]
+        return amount * rate
+    except KeyError:
+        print("Currency conversion not supported.")
+        return None
+
+print("Available currencies: USD, INR, EUR, GBP")
+from_currency = input("Enter the currency you have: ").upper()
+to_currency = input("Enter the currency you want to convert to: ").upper()
+
+try:
+    amount = float(input("Enter the amount: "))
+    converted_amount = currency_converter(amount, from_currency, to_currency)
+    if converted_amount is not None:
+        print(f"{amount} {from_currency} = {round(converted_amount, 2)} {to_currency}")
+except ValueError:
+    print("Please enter a valid number for amount.")
